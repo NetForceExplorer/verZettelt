@@ -13,8 +13,16 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }
+
+    // open new Activities for the buttons
+    public void onClickSwitchFileManagement(View view) {
+        Intent intent = new Intent(this, fileManagement.class);
+        startActivity(intent);
+    }
+
+    public void onClickSwitchEditor(View view) {
+        Intent intent = new Intent(this, editor.class);
+        startActivity(intent);
+    }
 }
 
-public void onClickSwitchActivity(View view) {
-    Intent intent = new Intent(this, SecondActivity.class);
-}

@@ -7,44 +7,46 @@
     tools:context=".MainActivity">
 
     <Button
-        android:id="@+id/startSearch"
+        android:id="@+id/startSearchBtn"
         android:layout_width="136dp"
         android:layout_height="wrap_content"
         android:text="Search"
-        app:layout_constraintBaseline_toBaselineOf="@+id/newZettel"
+        app:layout_constraintBaseline_toBaselineOf="@+id/newZettelBtn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/newZettel" />
+        app:layout_constraintStart_toEndOf="@+id/newZettelBtn" />
 
     <Button
-        android:id="@+id/newZettel"
+        android:id="@+id/newZettelBtn"
         android:layout_width="136dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="604dp"
         android:text="New Zettel"
-        app:layout_constraintEnd_toStartOf="@+id/startSearch"
+        android:onClick="onClickSwitchEditor"
+        app:layout_constraintEnd_toStartOf="@+id/startSearchBtn"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/takePicture"
+        app:layout_constraintStart_toEndOf="@+id/takePictureBtn"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/myZettel"
+        android:id="@+id/myZettelBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="24dp"
         android:text="Zettelkasten"
-        app:layout_constraintBottom_toTopOf="@+id/newZettel"
+        android:onClick="onClickSwitchFileManagement"
+        app:layout_constraintBottom_toTopOf="@+id/newZettelBtn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/takePicture"
+        android:id="@+id/takePictureBtn"
         android:layout_width="135dp"
         android:layout_height="wrap_content"
         android:text="Picture"
-        app:layout_constraintBaseline_toBaselineOf="@+id/newZettel"
-        app:layout_constraintEnd_toStartOf="@+id/newZettel"
+        app:layout_constraintBaseline_toBaselineOf="@+id/newZettelBtn"
+        app:layout_constraintEnd_toStartOf="@+id/newZettelBtn"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -58,7 +60,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/randomZettel"
+        android:id="@+id/randomZettelText"
         android:layout_width="379dp"
         android:layout_height="465dp"
         android:layout_marginStart="16dp"
@@ -68,7 +70,7 @@
         android:layout_marginRight="16dp"
         android:layout_marginBottom="16dp"
         android:text="Random Zettel"
-        app:layout_constraintBottom_toTopOf="@+id/myZettel"
+        app:layout_constraintBottom_toTopOf="@+id/myZettelBtn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/randomZettelHeadline"

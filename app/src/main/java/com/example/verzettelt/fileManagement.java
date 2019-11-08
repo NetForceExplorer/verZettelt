@@ -3,6 +3,7 @@ package com.example.verzettelt;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
 
 public class fileManagement extends AppCompatActivity {
 
@@ -10,5 +11,8 @@ public class fileManagement extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_file_management);
+    }
+    public void onClickClose(View view) {
+        finish();
     }
 }
