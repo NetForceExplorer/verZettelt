@@ -85,10 +85,12 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/verzettelt/fileManagement.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="474">
-              <caret line="38" column="30" selection-start-line="38" selection-start-column="30" selection-end-line="38" selection-end-column="30" />
+            <state relative-caret-position="309">
+              <caret line="51" column="41" selection-start-line="51" selection-start-column="41" selection-end-line="51" selection-end-column="41" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#1989#1990#0" expanded="true" />
+                <element signature="e#2032#2033#0" expanded="true" />
                 <element signature="e#445#446#0" expanded="true" />
                 <element signature="e#469#470#0" expanded="true" />
               </folding>
@@ -162,7 +164,7 @@
   <component name="ProjectFrameBounds">
     <option name="x" value="29" />
     <option name="y" value="47" />
-    <option name="width" value="1244" />
+    <option name="width" value="818" />
     <option name="height" value="1004" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -284,7 +286,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="29" y="47" width="1244" height="1004" extended-state="0" />
+    <frame x="29" y="47" width="818" height="1004" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" weight="0.17958656" />
@@ -409,25 +411,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/verzettelt/identifier.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="37" selection-start-line="16" selection-start-column="37" selection-end-line="16" selection-end-column="37" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/verzettelt/markdownRender.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/verzettelt/editor.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-195">
@@ -448,12 +431,33 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/verzettelt/fileManagement.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/verzettelt/identifier.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="474">
-          <caret line="38" column="30" selection-start-line="38" selection-start-column="30" selection-end-line="38" selection-end-column="30" />
+        <state relative-caret-position="240">
+          <caret line="16" column="37" selection-start-line="16" selection-start-column="37" selection-end-line="16" selection-end-column="37" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/verzettelt/markdownRender.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/verzettelt/fileManagement.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="309">
+          <caret line="51" column="41" selection-start-line="51" selection-start-column="41" selection-end-line="51" selection-end-column="41" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1989#1990#0" expanded="true" />
+            <element signature="e#2032#2033#0" expanded="true" />
             <element signature="e#445#446#0" expanded="true" />
             <element signature="e#469#470#0" expanded="true" />
           </folding>
