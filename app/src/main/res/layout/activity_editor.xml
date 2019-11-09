@@ -15,10 +15,8 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
-        android:layout_marginBottom="16dp"
         android:onClick="onClickClose"
         android:text="Back"
-        app:layout_constraintBottom_toTopOf="@+id/editText"
         app:layout_constraintEnd_toStartOf="@+id/saveZettelBtn"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -31,25 +29,32 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
-        android:layout_marginBottom="16dp"
         android:text="Save"
-        app:layout_constraintBottom_toTopOf="@+id/editText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/zettelContextEditText"
+        style="@android:style/Widget.DeviceDefault.AutoCompleteTextView"
+        android:layout_width="379dp"
+        android:layout_height="635dp"
+        android:ems="10"
+        android:inputType="textMultiLine"
+        android:text="This a Zettel created with the Luhmann Method"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="80dp" />
 
     <androidx.constraintlayout.widget.Group
         android:id="@+id/group4"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="zettelContextEditText" />
 
-    <EditText
-        android:id="@+id/editText"
-        android:layout_width="379dp"
-        android:layout_height="635dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Name"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="80dp" />
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/group5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="backBtn,saveZettelBtn" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

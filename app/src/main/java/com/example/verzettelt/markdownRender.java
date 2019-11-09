@@ -1,37 +1,22 @@
 package com.example.verzettelt;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.graphics.Color;
 import android.os.Bundle;
-import android.text.TextWatcher;
 import android.view.View;
 
-import com.yydcdut.markdown.MarkdownConfiguration;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+
 import com.yydcdut.markdown.MarkdownEditText;
 import com.yydcdut.markdown.MarkdownProcessor;
 import com.yydcdut.markdown.MarkdownTextView;
 import com.yydcdut.markdown.syntax.edit.EditFactory;
-import com.yydcdut.markdown.theme.ThemeDefault;
 import com.yydcdut.rxmarkdown.RxMDConfiguration;
 import com.yydcdut.rxmarkdown.RxMDEditText;
 import com.yydcdut.rxmarkdown.RxMDTextView;
 import com.yydcdut.rxmarkdown.RxMarkdown;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-
-import rx.Observable;
-import rx.Subscriber;
-import rx.Subscription;
-import rx.android.schedulers.AndroidSchedulers;
-import rx.schedulers.Schedulers;
-
-public class editor extends AppCompatActivity {
+public class markdownRender extends AppCompatActivity {
 
     private RxMDEditText mRxMDEditText;
     private RxMDTextView mRxMDTextView;
@@ -42,13 +27,14 @@ public class editor extends AppCompatActivity {
     private MarkdownProcessor mMarkdownProcessor;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_editor);
+
         String content = (String) "test";
 
         mRxMDEditText = (RxMDEditText) findViewById(R.id.zettelContextEditText);
-        mRxMDEditText.addTextChangedListener((TextWatcher) this);
+        //mRxMDEditText.addTextChangedListener(this);
         mRxMDEditText.setText(content);
         //mRxMDTextView = (RxMDTextView) findViewById(R.id.randomZettelText);
 
@@ -60,13 +46,10 @@ public class editor extends AppCompatActivity {
         rxMarkdown(mRxMDEditText);
         mRxMDEditText.setVisibility(View.VISIBLE);
         //mRxMDTextView.setVisibility(View.VISIBLE);
-    }
 
-    public void onClickClose(View view) {
-        finish();
-    }
+        }
 
-    private void rxMarkdown(RxMDEditText mRxMDEditText) {
+    public void rxMarkdown(RxMDEditText mRxMDEditText) {
         mRxMDConfiguration = new RxMDConfiguration.Builder(this)
                 .setDefaultImageSize(400, 400)
                 .setBlockQuotesLineColor(0xff33b5e5)
@@ -90,8 +73,8 @@ public class editor extends AppCompatActivity {
                 .config(mRxMDConfiguration)
                 .factory(EditFactory.create())
                 .intoObservable()
-                .subscribeOn(Schedulers.computation())
-                .observeOn(AndroidSchedulers.mainThread())
+//                .subscribeOn(Schedulers.computation())
+//                .observeOn(AndroidSchedulers.mainThread())
                 .subscribe();
     }
 
