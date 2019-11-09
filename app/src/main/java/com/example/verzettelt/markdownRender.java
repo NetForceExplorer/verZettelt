@@ -29,13 +29,13 @@ public class markdownRender extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_editor);
+        //setContentView(R.layout.activity_editor);
 
-        String content = (String) "test";
+        //String content = (String) "test";
 
-        mRxMDEditText = (RxMDEditText) findViewById(R.id.zettelContextEditText);
+        //mRxMDEditText = (RxMDEditText) findViewById(R.id.zettelContextEditText);
         //mRxMDEditText.addTextChangedListener(this);
-        mRxMDEditText.setText(content);
+        //mRxMDEditText.setText(content);
         //mRxMDTextView = (RxMDTextView) findViewById(R.id.randomZettelText);
 
         //mMarkdownEditText = (MarkdownEditText) findViewById(R.id.edit_rx);
@@ -43,39 +43,39 @@ public class markdownRender extends AppCompatActivity {
         //mMarkdownTextView = (MarkdownTextView) findViewById(R.id.txt_md_show);
         //mMarkdownEditText.setText(Const.MD_SAMPLE);
 
-        rxMarkdown(mRxMDEditText);
-        mRxMDEditText.setVisibility(View.VISIBLE);
+        //rxMarkdown(mRxMDEditText);
+        //mRxMDEditText.setVisibility(View.VISIBLE);
         //mRxMDTextView.setVisibility(View.VISIBLE);
 
         }
 
-    public void rxMarkdown(RxMDEditText mRxMDEditText) {
-        mRxMDConfiguration = new RxMDConfiguration.Builder(this)
-                .setDefaultImageSize(400, 400)
-                .setBlockQuotesLineColor(0xff33b5e5)
-                .setHeader1RelativeSize(1.6f)
-                .setHeader2RelativeSize(1.5f)
-                .setHeader3RelativeSize(1.4f)
-                .setHeader4RelativeSize(1.3f)
-                .setHeader5RelativeSize(1.2f)
-                .setHeader6RelativeSize(1.1f)
-                .setHorizontalRulesColor(0xffaa66cc)
-                .setCodeBgColor(0x33CCCCCC)
-                .setTodoColor(0xff669900)
-                .setTodoDoneColor(0xffff4444)
-                .setUnOrderListColor(0xffffbb33)
-                //.setRxMDImageLoader(new OKLoader(this))
-                .showLinkUnderline(true)
-                .setLinkFontColor(0xff00ddff)
-                .build();
-        //horizontalEditScrollView.setEditTextAndConfig(mRxMDEditText, mRxMDConfiguration);
-        RxMarkdown.live(mRxMDEditText)
-                .config(mRxMDConfiguration)
-                .factory(EditFactory.create())
-                .intoObservable()
+    //public void rxMarkdown(RxMDEditText mRxMDEditText) {
+    //    mRxMDConfiguration = new RxMDConfiguration.Builder(this)
+    //            .setDefaultImageSize(400, 400)
+    //            .setBlockQuotesLineColor(0xff33b5e5)
+    //            .setHeader1RelativeSize(1.6f)
+    //            .setHeader2RelativeSize(1.5f)
+    //            .setHeader3RelativeSize(1.4f)
+    //           .setHeader4RelativeSize(1.3f)
+    //            .setHeader5RelativeSize(1.2f)
+    //           .setHeader6RelativeSize(1.1f)
+    //            .setHorizontalRulesColor(0xffaa66cc)
+    //            .setCodeBgColor(0x33CCCCCC)
+    //            .setTodoColor(0xff669900)
+    //            .setTodoDoneColor(0xffff4444)
+    //            .setUnOrderListColor(0xffffbb33)
+    //            //.setRxMDImageLoader(new OKLoader(this))
+    //            .showLinkUnderline(true)
+    //            .setLinkFontColor(0xff00ddff)
+    //            .build();
+    //    //horizontalEditScrollView.setEditTextAndConfig(mRxMDEditText, mRxMDConfiguration);
+    //    RxMarkdown.live(mRxMDEditText)
+    //            .config(mRxMDConfiguration)
+    //            .factory(EditFactory.create())
+    //            .intoObservable()
 //                .subscribeOn(Schedulers.computation())
 //                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe();
-    }
+    //            .subscribe();
+    //}
 
 }
