@@ -35,11 +35,13 @@ public class fileManagement extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_file_management);
         TextView myAwesomeTextView = (TextView) findViewById(R.id.idTextView);
-        myAwesomeTextView.setText(id);
 
-        //Using API Call in order to get a list of all files
-        File file = getFilesDir();
-        File f[] = file.listFiles();
+        //Using API Call in order to get a list of all files as with string format
+        //File file = getFilesDir();
+        //File f[] = file.listFiles();
+        String[] f = getFilesDir().list();
+
+        myAwesomeTextView.setText(f[3]);
 
         //Find id of Recycler view
         RecyclerView allZettelList = (RecyclerView) findViewById(R.id.allZettelRecycler);
@@ -47,14 +49,50 @@ public class fileManagement extends AppCompatActivity {
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         allZettelList.setLayoutManager(layoutManager);
         //In order to feed The data we need some adapter
-        //allZettelList.setAdapter(new BasicListAdapter(this));
+        allZettelList.setAdapter(new BasicListAdapter(f));
 
     }
 
     // our adapter class for feeding the data
-    // RecycleView.adapter needs a viewholder which holds multiple views in  a certain layout
+    public class BasicListAdapter extends RecyclerView.Adapter<BasicListAdapter.SimpleViewHolder> {
+        private String[] dataSource;
+
+        // simple constructor
+        public BasicListAdapter(String[] dataArgs) {
+            dataSource = dataArgs;
+        }
+
+        // RecycleView.adapter needs a viewholder which holds multiple views in  a certain layout
+        @Override
+        public SimpleViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+            // create a new view
+            View view = new TextView(parent.getContext());
+            SimpleViewHolder viewHolder = new SimpleViewHolder(view);
+            return viewHolder;
+        }
+
+        public class SimpleViewHolder extends RecyclerView.ViewHolder{
+            public TextView textView;
+            public SimpleViewHolder(View itemView) {
+                super(itemView);
+                textView = (TextView) itemView;
+            }
+        }
+
+        @Override
+        public void onBindViewHolder(SimpleViewHolder holder, int position) {
+            holder.textView.setText(dataSource[position]);
+        }
+
+        // Item count based on list input; mainly used to count number of files
+        @Override
+        public int getItemCount() {
+            return dataSource.length;
+        }
+    }
 
 
+    // Go backk to main_activity
     public void onClickClose(View view) {
         finish();
     }
