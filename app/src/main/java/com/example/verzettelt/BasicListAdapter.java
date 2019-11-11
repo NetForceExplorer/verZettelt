@@ -58,6 +58,7 @@ public class BasicListAdapter extends RecyclerView.Adapter<BasicListAdapter.Simp
                 Toast.makeText(itemView.getContext(),"Loading Zettel: " + dataSource[position] , Toast.LENGTH_SHORT).show();
                 zettelPath = dataSource[position];
                 Intent intent = new Intent(itemView.getContext(), editor.class);
+                intent.putExtra("zettelPath", dataSource[position]);
                 itemView.getContext().startActivity(intent);
             }
         });

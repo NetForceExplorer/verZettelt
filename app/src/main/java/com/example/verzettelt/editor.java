@@ -51,12 +51,27 @@ public class editor extends AppCompatActivity {
     EditText myZettel;
     identifier currentId = new identifier();
     String filename = currentId.create() + ".md";
+    //String zettelPath = filename;
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_editor);
         myZettel = findViewById(R.id.zettelContextEditText);
+
+        //Pass information from different Activites
+        Bundle extras = getIntent().getExtras();
+
+        //only create identifyer if no zettel was selected in antother activity
+        if (extras != null) {
+            zettelPath = extras.getString("zettelPath") ;
+            extras = null;
+        } else {
+            zettelPath = filename;
+        }
     }
 
     // Saving Zettel to internal Storagke
@@ -69,7 +84,7 @@ public class editor extends AppCompatActivity {
         // use try and catch errors if they are happening
         try {
             //open file
-            fos = openFileOutput(filename, MODE_PRIVATE);
+            fos = openFileOutput(zettelPath, MODE_PRIVATE);
             //write file
             fos.write(input.getBytes());
 
@@ -77,7 +92,7 @@ public class editor extends AppCompatActivity {
             //myZettel.getText().clear();
 
             // Toast for success
-            Toast.makeText(this, "Zettel " + filename +" is save!",
+            Toast.makeText(this, "Zettel " + zettelPath +" is save!",
                     Toast.LENGTH_SHORT).show();
             // Catching different errors
         } catch (FileNotFoundException e) {
@@ -101,7 +116,7 @@ public class editor extends AppCompatActivity {
     public void loadZettel(View v) {
         //using FileInputStream instead of output stream
         FileInputStream fis = null;
-
+        //in order to save with the loaded filename we need to overwrite identifier filename which always changes during onCreate
         try {
             fis = openFileInput(zettelPath);
             InputStreamReader isr = new InputStreamReader(fis);
