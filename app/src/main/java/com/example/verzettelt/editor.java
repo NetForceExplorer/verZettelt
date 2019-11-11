@@ -54,19 +54,27 @@ public class editor extends AppCompatActivity {
         myZettel = findViewById(R.id.zettelContextEditText);
     }
 
-    // Saving Zettel to internal Storage
+    // Saving Zettel to internal Storagke
     public void saveZettel(View view)
     {
-        //Get
+        //Convert edittext input into string
         String input = myZettel.getText().toString();
+        //using file streams for writing and saving data
         FileOutputStream fos = null;
+        // use try and catch errors if they are happening
         try {
+            //open file
             fos = openFileOutput(filename, MODE_PRIVATE);
+            //write file
             fos.write(input.getBytes());
 
-            myZettel.getText().clear();
-            Toast.makeText(this, "Zettel is " + filename +" is save!",
+            // Clear edittext view
+            //myZettel.getText().clear();
+
+            // Toast for success
+            Toast.makeText(this, "Zettel " + filename +" is save!",
                     Toast.LENGTH_LONG).show();
+            // Catching different errors
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -74,6 +82,7 @@ public class editor extends AppCompatActivity {
         } finally {
             if (fos != null) {
                 try {
+                    // close file if finished
                     fos.close();
                 } catch (IOException e) {
                     e.printStackTrace();
