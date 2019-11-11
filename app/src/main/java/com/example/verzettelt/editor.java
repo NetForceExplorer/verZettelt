@@ -20,11 +20,14 @@ import com.yydcdut.rxmarkdown.RxMDEditText;
 import com.yydcdut.rxmarkdown.RxMDTextView;
 import com.yydcdut.rxmarkdown.RxMarkdown;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.OutputStream;
 
 import rx.Observable;
@@ -32,6 +35,8 @@ import rx.Subscriber;
 import rx.Subscription;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
+
+import static com.example.verzettelt.fileManagement.zettelPath;
 
 public class editor extends AppCompatActivity {
 
@@ -73,7 +78,7 @@ public class editor extends AppCompatActivity {
 
             // Toast for success
             Toast.makeText(this, "Zettel " + filename +" is save!",
-                    Toast.LENGTH_LONG).show();
+                    Toast.LENGTH_SHORT).show();
             // Catching different errors
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -90,6 +95,39 @@ public class editor extends AppCompatActivity {
             }
         }
 
+    }
+
+    //loading Zettel from storage
+    public void loadZettel(View v) {
+        //using FileInputStream instead of output stream
+        FileInputStream fis = null;
+
+        try {
+            fis = openFileInput(zettelPath);
+            InputStreamReader isr = new InputStreamReader(fis);
+            BufferedReader br = new BufferedReader(isr);
+            StringBuilder sb = new StringBuilder();
+            String text;
+
+            while ((text = br.readLine()) != null) {
+                sb.append(text).append("\n");
+            }
+
+            myZettel.setText(sb.toString());
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            if (fis != null) {
+                try {
+                    fis.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
     }
 
     public void onClickClose(View view) {

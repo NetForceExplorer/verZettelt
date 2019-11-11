@@ -1,5 +1,6 @@
 package com.example.verzettelt;
 
+import android.content.Intent;
 import android.util.SparseBooleanArray;
 import android.view.MotionEvent;
 import android.view.View;
@@ -17,6 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static android.content.Context.MODE_PRIVATE;
+import static com.example.verzettelt.fileManagement.zettelPath;
 
 // our adapter class for feeding the data
 public class BasicListAdapter extends RecyclerView.Adapter<BasicListAdapter.SimpleViewHolder> {
@@ -53,8 +55,10 @@ public class BasicListAdapter extends RecyclerView.Adapter<BasicListAdapter.Simp
         holder.itemView.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View itemView) {
-                int test = 1+1;
                 Toast.makeText(itemView.getContext(),"Loading Zettel: " + dataSource[position] , Toast.LENGTH_SHORT).show();
+                zettelPath = dataSource[position];
+                Intent intent = new Intent(itemView.getContext(), editor.class);
+                itemView.getContext().startActivity(intent);
             }
         });
     }

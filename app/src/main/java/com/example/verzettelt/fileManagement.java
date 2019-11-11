@@ -31,6 +31,7 @@ import java.util.List;
 public class fileManagement extends AppCompatActivity {
     identifier currentId = new identifier();
     String id = currentId.create();
+    public static String zettelPath = "empty";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
