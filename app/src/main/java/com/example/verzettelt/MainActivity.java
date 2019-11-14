@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.ContentProvider;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.text.method.LinkMovementMethod;
@@ -41,6 +42,11 @@ public class MainActivity extends AppCompatActivity {
 
     public void onClickSwitchEditor(View view) {
         Intent intent = new Intent(this, editor.class);
+        startActivity(intent);
+    }
+
+    public void onClickSwitchCamera(View view) {
+        Intent intent = new Intent(this, camera2.class);
         startActivity(intent);
     }
 }
