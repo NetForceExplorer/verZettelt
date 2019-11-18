@@ -45,8 +45,8 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void onClickSwitchCamera(View view) {
-        Intent intent = new Intent(this, camera2.class);
-        startActivity(intent);
-    }
+    //public void onClickSwitchCamera(View view) {
+    //    Intent intent = new Intent(this, camera2.class);
+    //    startActivity(intent);
+    //}
 }

@@ -26,8 +26,6 @@
             android:grantUriPermissions="true">
         </provider>
 
-        <activity android:name=".camera2"></activity>
-        <activity android:name=".camera" />
         <activity android:name=".editor" />
         <activity android:name=".fileManagement" />
         <activity android:name=".MainActivity">
